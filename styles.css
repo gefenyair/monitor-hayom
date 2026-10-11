@@ -1,0 +1,346 @@
+:root {
+  --bg: #f3f5f8;
+  --panel: #ffffff;
+  --ink: #1f2430;
+  --subtle: #6d7686;
+  --line: #e8ebf0;
+  --shadow: 0 18px 40px rgba(26, 35, 62, 0.1);
+  --walla-red: #f44336;
+  --ynet-red: #f14747;
+  --israel-yellow: #f7bf2f;
+  --n12-red: #d92c2c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #eef2f6 0%, #e8edf4 100%);
+  color: var(--ink);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 18px;
+}
+
+.page-shell {
+  width: min(1500px, 100%);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  padding: 0 8px;
+}
+
+.brand-block {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brand-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3a7bfd, #7c4dff);
+  box-shadow: 0 0 0 4px rgba(58, 123, 253, 0.14);
+}
+
+.topbar-note {
+  color: var(--subtle);
+  font-size: 0.9rem;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 22px;
+}
+
+.site-card {
+  display: flex;
+  justify-content: center;
+}
+
+.phone-frame {
+  width: 100%;
+  max-width: 360px;
+  min-height: 820px;
+  background: #f7f7f8;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+.status-bar {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icons span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #444, #111);
+}
+
+.icons span:nth-child(1) {
+  width: 14px;
+  height: 8px;
+}
+
+.icons span:nth-child(2) {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #333, #0d0d0d);
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px 10px;
+  background: white;
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.walla .logo {
+  color: var(--walla-red);
+}
+
+.ynet .logo {
+  color: var(--ynet-red);
+  font-size: 1.25rem;
+}
+
+.israel-hayom .logo {
+  color: #1d1d1d;
+  font-size: 1.2rem;
+}
+
+.n12 .logo {
+  color: #1a1a1a;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.menu-icon {
+  width: 26px;
+  height: 18px;
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after,
+.menu-icon span {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #333;
+  border-radius: 2px;
+}
+
+.menu-icon::before { top: 0; }
+.menu-icon span { top: 8px; }
+.menu-icon::after { bottom: 0; }
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px 10px;
+  background: rgba(255, 255, 255, 0.94);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--subtle);
+}
+
+.site-nav span {
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.site-nav .active {
+  background: #f2f4f7;
+  color: var(--ink);
+}
+
+.hero-story {
+  margin: 12px 14px 0;
+  min-height: 180px;
+  border-radius: 18px;
+  padding: 14px 14px 12px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0,0,0,.08), rgba(0,0,0,.2)),
+              linear-gradient(125deg, #9bb5d3, #dbe7f5 58%, #f0f4f7 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.hero-story::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 25% 30%, rgba(255,255,255,0.55), transparent 30%);
+}
+
+.hero-story h2 {
+  position: relative;
+  z-index: 1;
+  margin: 8px 0 0;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1.28;
+  text-shadow: 0 2px 10px rgba(0,0,0,.2);
+}
+
+.hero-story .story-tag {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-self: flex-start;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(3px);
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.walla .hero-story {
+  background: linear-gradient(135deg, rgba(0,0,0,.2), rgba(0,0,0,.35)),
+              linear-gradient(125deg, #6d6d73, #d6d7db 65%, #f5f6f8 100%);
+}
+
+.ynet .hero-story {
+  background: linear-gradient(135deg, rgba(0,0,0,.28), rgba(0,0,0,.38)),
+              linear-gradient(125deg, #b8ccd8, #dfe8ef 58%, #f2f6f8 100%);
+}
+
+.israel-hayom .hero-story {
+  background: linear-gradient(135deg, rgba(0,0,0,.12), rgba(0,0,0,.2)),
+              linear-gradient(125deg, #e1b958, #f5d269 55%, #f9ebbe 100%);
+}
+
+.n12 .hero-story {
+  background: linear-gradient(135deg, rgba(0,0,0,.22), rgba(0,0,0,.32)),
+              linear-gradient(125deg, #a72f2f, #d77a7a 50%, #f2d1cf 100%);
+}
+
+.feed {
+  padding: 12px 14px 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.headline-card {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--line);
+}
+
+.headline-card.small {
+  grid-template-columns: 1fr;
+}
+
+.mini-thumb {
+  min-height: 70px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #dfeaf7, #bfe0d7);
+}
+
+.thumb-one { background: linear-gradient(135deg, #d0e0f8, #a8b5d9); }
+.thumb-two { background: linear-gradient(135deg, #d9e7ef, #b7c7d1); }
+.thumb-three { background: linear-gradient(135deg, #f9dd8a, #d4bb62); }
+.thumb-four { background: linear-gradient(135deg, #efc1c4, #d6a7a6); }
+
+.kicker {
+  display: block;
+  color: var(--subtle);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.headline-card h3 {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.38;
+}
+
+.walla .kicker { color: var(--walla-red); }
+.ynet .kicker { color: var(--ynet-red); }
+.israel-hayom .kicker { color: #a57900; }
+.n12 .kicker { color: var(--n12-red); }
+
+@media (max-width: 1200px) {
+  .news-grid {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  body {
+    padding: 18px 12px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .phone-frame {
+    max-width: none;
+  }
+}

@@ -5,6 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monitor Hayom</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #edf1f5;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .page-shell {
+        width: min(1520px, 100%);
+        margin: 0 auto;
+        padding: 24px 18px 40px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 8px 18px;
+      }
+
+      .brand-block {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .brand-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3a7bfd, #7c4dff);
+        box-shadow: 0 0 0 4px rgba(58, 123, 253, 0.14);
+      }
+
+      .topbar-note {
+        color: #6d7686;
+        font-size: 0.9rem;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(250px, 1fr));
+        gap: 22px;
+      }
+
+      .site-card {
+        display: flex;
+        justify-content: center;
+      }
+
+      .phone-frame {
+        width: 100%;
+        max-width: 360px;
+        height: 820px;
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 30px;
+        box-shadow: 0 18px 40px rgba(26, 35, 62, 0.1);
+        overflow: hidden;
+      }
+
+      .status-bar {
+        height: 32px;
+        background: rgba(255, 255, 255, 0.95);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px;
+        font-size: 0.7rem;
+        font-weight: 700;
+      }
+
+      .icons {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .icons span {
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+        background: linear-gradient(180deg, #444, #111);
+      }
+
+      .icons span:nth-child(1) { width: 14px; height: 8px; }
+      .icons span:nth-child(2) {
+        width: 10px; height: 10px; border-radius: 50%;
+        background: linear-gradient(180deg, #333, #0d0d0d);
+      }
+
+      .site-content {
+        width: 100%;
+        height: calc(100% - 32px);
+        background: #fff;
+      }
+
+      .site-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: white;
+        transform: scale(0.96);
+        transform-origin: top center;
+      }
+
+      @media (max-width: 1200px) {
+        .news-grid { grid-template-columns: repeat(2, minmax(250px, 1fr)); }
+      }
+
+      @media (max-width: 680px) {
+        .page-shell { padding: 16px 12px 26px; }
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          padding: 0 4px 12px;
+        }
+        .news-grid { grid-template-columns: 1fr; }
+        .phone-frame { max-width: none; }
+      }
+    </style>
   </head>
   <body>
     <div class="page-shell">
@@ -21,43 +147,10 @@
           <div class="phone-frame">
             <div class="status-bar">
               <span>9:41</span>
-              <div class="icons">
-                <span></span><span></span><span></span>
-              </div>
+              <div class="icons"><span></span><span></span><span></span></div>
             </div>
-            <header class="site-header">
-              <div class="logo">וואלה!</div>
-              <div class="menu-icon" aria-label="menu"></div>
-            </header>
-            <nav class="site-nav">
-              <span class="active">ראשי</span>
-              <span>ספורט</span>
-              <span>כלכלה</span>
-            </nav>
-            <div class="hero-story">
-              <div class="story-tag">LIVE</div>
-              <h2>המלחמה בעיצומה: עדכונים אחרונים</h2>
-            </div>
-            <div class="feed">
-              <article class="headline-card">
-                <div class="mini-thumb thumb-one"></div>
-                <div>
-                  <span class="kicker">חדשות</span>
-                  <h3>ממשלה אישרה תקציב חדש</h3>
-                </div>
-              </article>
-              <article class="headline-card small">
-                <div>
-                  <span class="kicker">ספורט</span>
-                  <h3>הקבוצה נחלצה מהמצב</h3>
-                </div>
-              </article>
-              <article class="headline-card small">
-                <div>
-                  <span class="kicker">עסקים</span>
-                  <h3>מחירי הדירות שוב עלו</h3>
-                </div>
-              </article>
+            <div class="site-content">
+              <iframe src="https://www.walla.co.il" class="site-iframe" title="Walla homepage"></iframe>
             </div>
           </div>
         </section>
@@ -66,43 +159,10 @@
           <div class="phone-frame">
             <div class="status-bar">
               <span>9:41</span>
-              <div class="icons">
-                <span></span><span></span><span></span>
-              </div>
+              <div class="icons"><span></span><span></span><span></span></div>
             </div>
-            <header class="site-header">
-              <div class="logo ynet-logo">YNET</div>
-              <div class="menu-icon" aria-label="menu"></div>
-            </header>
-            <nav class="site-nav">
-              <span class="active">ראשי</span>
-              <span>פוליטי</span>
-              <span>ספורט</span>
-            </nav>
-            <div class="hero-story">
-              <div class="story-tag">לייב</div>
-              <h2>מצב האקלים מחמיר והעיר מתארגנת</h2>
-            </div>
-            <div class="feed">
-              <article class="headline-card">
-                <div class="mini-thumb thumb-two"></div>
-                <div>
-                  <span class="kicker">חדשות</span>
-                  <h3>שגרירות בחו״ל מזהירה את התושבים</h3>
-                </div>
-              </article>
-              <article class="headline-card small">
-                <div>
-                  <span class="kicker">בריאות</span>
-                  <h3>מומחים מצביעים על שינויי מזג אוויר</h3>
-                </div>
-              </article>
-              <article class="headline-card small">
-                <div>
-                  <span class="kicker">תחבורה</span>
-                  <h3>נהגים נרשמים למסלול חדש</h3>
-                </div>
-              </article>
+            <div class="site-content">
+              <iframe src="https://www.ynet.co.il" class="site-iframe" title="Ynet homepage"></iframe>
             </div>
           </div>
         </section>
@@ -111,43 +171,10 @@
           <div class="phone-frame">
             <div class="status-bar">
               <span>9:41</span>
-              <div class="icons">
-                <span></span><span></span><span></span>
-              </div>
+              <div class="icons"><span></span><span></span><span></span></div>
             </div>
-            <header class="site-header">
-              <div class="logo">ישראל היום</div>
-              <div class="menu-icon" aria-label="menu"></div>
-            </header>
-            <nav class="site-nav">
-              <span class="active">כותרות</span>
-              <span>פוליטי</span>
-              <span>כלכלה</span>
-            </nav>
-            <div class="hero-story hero-yellow">
-              <div class="story-tag">מה חדש?</div>
-              <h2>הקמפיין החדש יושק היום</h2>
-            </div>
-            <div class="feed">
-              <article class="headline-card">
-                <div class="mini-thumb thumb-three"></div>
-                <div>
-                  <span class="kicker">מדיני</span>
-                  <h3>בכירי מערכת הביטחון נועדו הערב</h3>
-                </div>
-              </article>
-              <article class="headline-card small">
-                <div>
-                  <span class="kicker">רכב</span>
-                  <h3>ההשקה תחל בשעות הצהריים</h3>
-                </div>
-              </article>
-              <article class="headline-card small">
-                <div>
-                  <span class="kicker">חינוך</span>
-                  <h3>בבתי הספר מכינים את התוכנית החדשה</h3>
-                </div>
-              </article>
+            <div class="site-content">
+              <iframe src="https://www.israelhayom.co.il" class="site-iframe" title="Israel Hayom homepage"></iframe>
             </div>
           </div>
         </section>
@@ -156,43 +183,10 @@
           <div class="phone-frame">
             <div class="status-bar">
               <span>9:41</span>
-              <div class="icons">
-                <span></span><span></span><span></span>
-              </div>
+              <div class="icons"><span></span><span></span><span></span></div>
             </div>
-            <header class="site-header">
-              <div class="logo">N12</div>
-              <div class="menu-icon" aria-label="menu"></div>
-            </header>
-            <nav class="site-nav">
-              <span class="active">ראשי</span>
-              <span>חדשות</span>
-              <span>אקטואליה</span>
-            </nav>
-            <div class="hero-story hero-red">
-              <div class="story-tag">עכשיו</div>
-              <h2>העיר נרגעת, אבל הפעילות ממשיכה</h2>
-            </div>
-            <div class="feed">
-              <article class="headline-card">
-                <div class="mini-thumb thumb-four"></div>
-                <div>
-                  <span class="kicker">אקטואליה</span>
-                  <h3>אחרי פרסום בדיקה: כמה עלו הצרכים</h3>
-                </div>
-              </article>
-              <article class="headline-card small">
-                <div>
-                  <span class="kicker">כלכלה</span>
-                  <h3>שוק המניות רושם עליות חדות</h3>
-                </div>
-              </article>
-              <article class="headline-card small">
-                <div>
-                  <span class="kicker">תרבות</span>
-                  <h3>האירוע המרכזי נדחה ליום רביעי</h3>
-                </div>
-              </article>
+            <div class="site-content">
+              <iframe src="https://www.mako.co.il" class="site-iframe" title="N12 homepage"></iframe>
             </div>
           </div>
         </section>
